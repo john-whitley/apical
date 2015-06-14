@@ -112,3 +112,6 @@ tramp
 # Project definitions
 
 /composer.phar
+/vendor
+/node_modules
+.env
