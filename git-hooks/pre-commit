@@ -1,0 +1,8 @@
+#!/bin/sh
+
+GIT_ROOT=$(git rev-parse --show-toplevel)
+ADDED_FILES=$(git diff --cached --name-only | /bin/egrep '[.]php$' )
+
+if [ ! -z "$ADDED_FILES" ]; then
+    ( cd $GIT_ROOT ; ./phpcs --standard=PSR2 $ADDED_FILES )
+fi

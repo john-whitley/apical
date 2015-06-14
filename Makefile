@@ -1,3 +1,5 @@
+GIT_ROOT:=$(shell git rev-parse --show-toplevel)
+
 .PHONY: all composer.phar
 
 all: composer.phar
@@ -9,3 +11,7 @@ composer.phar:
 
 vendor: composer.phar
 	./composer.phar install
+
+install-hooks: vendor
+	rm -f ${GIT_ROOT}/.git/hooks/pre-commit
+	/bin/ln -s ${GIT_ROOT}/git-hooks/pre-commit ${GIT_ROOT}/.git/hooks/
