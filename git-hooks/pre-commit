@@ -3,8 +3,6 @@
 GIT_ROOT=$(git rev-parse --show-toplevel)
 ADDED_FILES=$(git diff --cached --name-only | /bin/egrep '[.]php$' | /bin/egrep -v '^bootstrap/' | /bin/egrep -v '^resources/' | /bin/egrep -v '^tests/' | /bin/egrep -v '^database/' )
 
-echo $ADDED_FILES
-
 if [ ! -z "$ADDED_FILES" ]; then
     ( cd $GIT_ROOT ; ./phpcs --standard=PSR2 $ADDED_FILES )
 fi
