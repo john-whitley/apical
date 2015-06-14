@@ -1,1 +1,3 @@
-vendor/squizlabs/php_codesniffer/scripts/phpcs
+#!/bin/bash
+
+vendor/squizlabs/php_codesniffer/scripts/phpcs --standard=PSR2 $@

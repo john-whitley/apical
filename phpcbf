@@ -1,1 +1,3 @@
-vendor/squizlabs/php_codesniffer/scripts/phpcbf
+#!/bin/bash
+
+vendor/squizlabs/php_codesniffer/scripts/phpcbf --standard=PSR2 $@
