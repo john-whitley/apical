@@ -10,8 +10,11 @@ composer.phar:
 	@chmod a+x composer.phar
 
 vendor: composer.phar
-	./composer.phar install
+	@./composer.phar install
 
 install-hooks: vendor
-	rm -f ${GIT_ROOT}/.git/hooks/pre-commit
-	/bin/ln -s ${GIT_ROOT}/git-hooks/pre-commit ${GIT_ROOT}/.git/hooks/
+	@rm -f ${GIT_ROOT}/.git/hooks/pre-commit
+	@/bin/ln -s ${GIT_ROOT}/git-hooks/pre-commit ${GIT_ROOT}/.git/hooks/
+
+test: vendor
+	@${GIT_ROOT}/vendor/phpunit/phpunit/phpunit
