@@ -2,7 +2,7 @@ GIT_ROOT:=$(shell git rev-parse --show-toplevel)
 
 .PHONY: all composer.phar
 
-all: composer.phar
+all: vendor install-hooks
 
 composer.phar:
 	@if [ ! -e composer.phar ]; then curl -sS https://getcomposer.org/installer | php; fi
